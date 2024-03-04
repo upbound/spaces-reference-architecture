@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: playground-control-plane-config
+  namespace: argocd
+  labels:
+    acmeco/team: playground
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: configuration/playground/ctp-playground
+    directory:
+      recurse: true
+  destination:
+    name: controlplane-playground
+    namespace: marketing-services

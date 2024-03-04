@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: marketing-services-control-plane-config-test
+  namespace: argocd
+  labels:
+    acmeco/team: marketing-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: configuration/marketing-services/ctp-marketing-services-test
+    directory:
+      recurse: true
+  destination:
+    name: controlplane-marketing-services-test
+    namespace: marketing-services

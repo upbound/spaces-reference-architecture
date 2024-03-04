@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: playground-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: playground
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: infrastructure/playground
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: playground
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

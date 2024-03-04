@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: consumer-services-control-plane-config-test
+  namespace: argocd
+  labels:
+    acmeco/team: consumer-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: configuration/consumer-services/ctp-consumer-services-test
+    directory:
+      recurse: true
+  destination:
+    name: controlplane-consumer-services-test
+    namespace: consumer-services

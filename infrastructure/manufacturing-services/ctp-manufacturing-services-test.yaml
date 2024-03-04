@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: controlplane-manufacturing-services-test
+  namespace: manufacturing-services
+  labels:
+    acmeco/team: manufacturing-services
+    acmeco/environment: test
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: kubeconfig-controlplane-manufacturing-services-test
+    namespace: manufacturing-services

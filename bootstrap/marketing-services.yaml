@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: marketing-services-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: marketing-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: infrastructure/marketing-services
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: marketing-services
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

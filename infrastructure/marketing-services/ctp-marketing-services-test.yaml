@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: controlplane-marketing-services-test
+  namespace: marketing-services
+  labels:
+    acmeco/team: marketing-services
+    acmeco/environment: test
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: kubeconfig-controlplane-marketing-services-test
+    namespace: marketing-services

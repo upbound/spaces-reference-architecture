@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: controlplane-playground
+  namespace: playground
+  labels:
+    acmeco/team: playground
+    acmeco/environment: test
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: kubeconfig-controlplane-playground
+    namespace: playground

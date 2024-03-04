@@ -1,0 +1,15 @@
+apiVersion: spaces.upbound.io/v1beta1
+kind: ControlPlane
+metadata:
+  name: controlplane-consumer-services-test
+  namespace: consumer-services
+  labels:
+    acmeco/team: consumer-services
+    acmeco/environment: test
+spec:
+  crossplane:
+    autoUpgrade:
+      channel: Rapid 
+  writeConnectionSecretToRef:
+    name: kubeconfig-controlplane-consumer-services-test
+    namespace: consumer-services

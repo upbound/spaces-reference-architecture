@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: consumer-services-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: consumer-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: infrastructure/consumer-services
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: consumer-services
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: manufacturing-services-control-plane-config-test
+  namespace: argocd
+  labels:
+    acmeco/team: manufacturing-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: configuration/manufacturing-services/ctp-manufacturing-services-test
+    directory:
+      recurse: true
+  destination:
+    name: controlplane-manufacturing-services-test
+    namespace: manufacturing-services

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: manufacturing-services-control-planes
+  namespace: argocd
+  labels:
+    acmeco/team: manufacturing-services
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/cwilhit/platform-ref-upbound.git
+    targetRevision: HEAD
+    path: infrastructure/manufacturing-services
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: manufacturing-services
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
