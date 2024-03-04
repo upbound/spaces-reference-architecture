@@ -1,4 +1,4 @@
-# platform-ref-upbound
+# Upbound Self-Hosted Spaces reference architecture
 
 This repository contains a reference implementation for deploying Crossplane at scale with Upbound self-hosted Spaces. 
 
