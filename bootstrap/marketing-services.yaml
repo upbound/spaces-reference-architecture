@@ -15,5 +15,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: marketing-services
   syncPolicy:
+    automated:
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
