@@ -26,13 +26,13 @@ In each of these three root folders, the resources are grouped together based on
 
 This project requires the following:
 
-* You've deployed Upbound self-hosted Spaces (deployed into your preferred Kubernetes cluster). When deploying the Space, make sure to enable the [on cluster Argo CD plugin](https://docs.upbound.io/spaces/use-argo-flux/#on-cluster-argo-cd).
+* You've deployed Upbound self-hosted Spaces (deployed into your preferred Kubernetes cluster). When deploying the Space, make sure to enable the [on cluster Argo CD plugin](https://docs.upbound.io/all-spaces/disconnected-spaces/helm-reference/).
 * You've deployed Argo CD on the same cluster.
 
 ### Setup
 
 1. Clone this repository to your machine.
-2. Deploy a self-hosted Upbound Space using the [documentation](https://docs.upbound.io/spaces/quickstart/azure-deploy/). **Make sure to include the argocd plugin optional alpha feature in the `up space init ...` command as linked in the preceding section.**
+2. Deploy a self-hosted Upbound Space using the [documentation](https://docs.upbound.io/spaces/quickstart). **Make sure to include the argocd plugin optional alpha feature in the `up space init ...` command as linked in the preceding section.**
 3. Deploy Argo CD into the same hosting Kubernetes cluster following [Argo CD documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 4. Configure Argo CD after installation by editing the ConfigMap `argocd-cm` in the `argocd` namespace:
 
